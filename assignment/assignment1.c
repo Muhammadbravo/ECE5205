@@ -8,8 +8,8 @@ memory location using a pointer.
 
 #include <stdio.h>
 int main() {
-    char line[150];
-    int vowels, consonant, *p;
+    char line[150], *p;
+    int vowels, consonant;
 
     vowels = consonant = 0;
 
@@ -28,6 +28,7 @@ int main() {
     }
 
     
+    p = line;
 
     for (int i = 0, j; line[i] != '\0'; ++i) {
 
@@ -38,7 +39,7 @@ int main() {
             && !(line[i] == '\0')) {
          for (j = i; line[j] != '\0'; ++j) {
 
-            // if jth element of line is not an vowel,
+            // if jth element of line is not vowel,
             // assign the value of (j+1)th element to the jth element
             line[j] = line[j + 1];
          }
