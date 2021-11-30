@@ -16,6 +16,8 @@ int main() {
     printf("Enter a line of string: ");
     fgets(line, sizeof(line), stdin);
 
+    p = line;
+
     for (int i = 0; line[i] != '\0'; ++i) {
         if (line[i] == 'a' || line[i] == 'e' || line[i] == 'i' ||
             line[i] == 'o' || line[i] == 'u' || line[i] == 'A' ||
@@ -24,12 +26,14 @@ int main() {
             ++vowels;
         } else if ((line[i] >= 'a' && line[i] <= 'z') || (line[i] >= 'A' && line[i] <= 'Z')) {
             ++consonant;
+            ++p;
+            printf("\nMemory location of %c == %p", line[i], p);
+
+
         }
     }
 
     
-    p = line;
-
     for (int i = 0, j; line[i] != '\0'; ++i) {
 
       // enter the loop if the character is not an vowel
@@ -46,9 +50,11 @@ int main() {
          line[j] = '\0';
       }
    }
-    printf("Vowels: %d", vowels);
+    printf("\n\nVowels: %d", vowels);
     printf("\nConsonants: %d", consonant);
     printf("\nEliminating all vowels... %s", line);
+
+    getchar();
 
     return 0;
 }
