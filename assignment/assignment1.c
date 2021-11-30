@@ -8,51 +8,51 @@ memory location using a pointer.
 
 #include <stdio.h>
 int main() {
-    char line[150], *p;
+    char arr[150], *p;
     int vowels, consonant;
 
     vowels = consonant = 0;
 
-    printf("Enter a line of string: ");
-    fgets(line, sizeof(line), stdin);
+    printf("Enter a string: ");
+    fgets(arr, sizeof(arr), stdin);
 
-    p = line;
+    p = arr;
 
-    for (int i = 0; line[i] != '\0'; ++i) {
-        if (line[i] == 'a' || line[i] == 'e' || line[i] == 'i' ||
-            line[i] == 'o' || line[i] == 'u' || line[i] == 'A' ||
-            line[i] == 'E' || line[i] == 'I' || line[i] == 'O' ||
-            line[i] == 'U') {
+    for (int i = 0; arr[i] != '\0'; ++i) {
+        if (arr[i] == 'a' || arr[i] == 'e' || arr[i] == 'i' ||
+            arr[i] == 'o' || arr[i] == 'u' || arr[i] == 'A' ||
+            arr[i] == 'E' || arr[i] == 'I' || arr[i] == 'O' ||
+            arr[i] == 'U') {
             ++vowels;
-        } else if ((line[i] >= 'a' && line[i] <= 'z') || (line[i] >= 'A' && line[i] <= 'Z')) {
+        } else if ((arr[i] >= 'a' && arr[i] <= 'z') || (arr[i] >= 'A' && arr[i] <= 'Z')) {
             ++consonant;
             ++p;
-            printf("\nMemory location of %c == %p", line[i], p);
+            printf("\nMemory location of %c == %p", arr[i], p);
 
 
         }
     }
 
     
-    for (int i = 0, j; line[i] != '\0'; ++i) {
+    for (int i = 0, j; arr[i] != '\0'; ++i) {
 
       // enter the loop if the character is not an vowel
       // and not the null character
-      while (!(line[i] != 'a' && line[i] != 'e' && line[i] != 'i' && line[i] != 'o' && line[i] != 'u'
-            && line[i] != 'A' && line[i] != 'E' && line[i] != 'I' && line[i] != 'O' && line[i] != 'U')
-            && !(line[i] == '\0')) {
-         for (j = i; line[j] != '\0'; ++j) {
+      while (!(arr[i] != 'a' && arr[i] != 'e' && arr[i] != 'i' && arr[i] != 'o' && arr[i] != 'u'
+            && arr[i] != 'A' && arr[i] != 'E' && arr[i] != 'I' && arr[i] != 'O' && arr[i] != 'U')
+            && !(arr[i] == '\0')) {
+         for (j = i; arr[j] != '\0'; ++j) {
 
-            // if jth element of line is not vowel,
+            // if jth element of arr is not vowel,
             // assign the value of (j+1)th element to the jth element
-            line[j] = line[j + 1];
+            arr[j] = arr[j + 1];
          }
-         line[j] = '\0';
+         arr[j] = '\0';
       }
    }
     printf("\n\nVowels: %d", vowels);
     printf("\nConsonants: %d", consonant);
-    printf("\nEliminating all vowels... %s", line);
+    printf("\nEliminating all vowels... %s", arr);
 
     getchar();
 
