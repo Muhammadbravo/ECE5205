@@ -36,7 +36,7 @@ int main() {
     
     for (int i = 0, j; arr[i] != '\0'; ++i) {
 
-      // enter the loop if the character is not an vowel
+      // enter the loop if the character is not a vowel
       // and not the null character
       while (!(arr[i] != 'a' && arr[i] != 'e' && arr[i] != 'i' && arr[i] != 'o' && arr[i] != 'u'
             && arr[i] != 'A' && arr[i] != 'E' && arr[i] != 'I' && arr[i] != 'O' && arr[i] != 'U')
